@@ -9,7 +9,7 @@ app.use(cors(
     {
     origin: ["https://login-mern-fv3e.vercel.app"],
     methods: ["POST","GET"],
-    credential: true
+    credentials : true
     }
 ));
 
