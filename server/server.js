@@ -13,8 +13,18 @@ app.use(cors(
     }
 ));
 
+const connect = async() =>{
+    try {
+        let {connection} = await mongoose.connect("mongodb+srv://tanbir:tanbir123@cluster0.6zrh5sq.mongodb.net/?retryWrites=true&w=majority");
+        console.log("connection done..., " , connection.host);
 
-mongoose.connect("mongodb+srv://mailmeattanbirali:EoGguGIyIRBiMxGL@cluster0.jymctcs.mongodb.net/test?retryWrites=true&w=majority");
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+connect()
+
 
 app.post("/login", (req, res) =>{
     const {email, password} = req.body;
