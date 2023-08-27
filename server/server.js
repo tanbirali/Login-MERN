@@ -43,7 +43,11 @@ app.post("/login", (req, res) =>{
     })
 })
 
-app.post("/", (req, res) =>{
+app.get("/", (req, res) => {
+    res.json("Hello")
+})
+
+app.post("/register", (req, res) =>{
     userModel.create(req.body)
     .then(users => res.json(users))
     .catch(error => res.json(error))

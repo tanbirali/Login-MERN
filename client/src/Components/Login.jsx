@@ -55,7 +55,7 @@ const Login = () => {
           </button>
       </form>
       <p>Don't have an account</p>
-      <Link to='/' className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none'>
+      <Link to='/register' className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none'>
               Register
           </Link>
     </div>
