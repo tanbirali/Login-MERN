@@ -10,7 +10,7 @@ const Register = () => {
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-        axios.post('http://localhost:8080/register', {name, email, password})
+        axios.post('https://login-mern-api.vercel.app/', {name, email, password})
         .then(result => {
             console.log(result)
             navigate('/login')

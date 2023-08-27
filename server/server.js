@@ -5,10 +5,16 @@ const userModel = require('./models/userModel')
 const mongoose = require('mongoose');
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+    {
+    origin: ["https://login-mern-fv3e.vercel.app/"],
+    methods: ["POST","GET"],
+    credential: true
+    }
+));
 
 
-mongoose.connect("mongodb://127.0.0.1:27017/assignment");
+mongoose.connect("mongodb+srv://mailmeattanbirali:EoGguGIyIRBiMxGL@cluster0.jymctcs.mongodb.net/test?retryWrites=true&w=majority");
 
 app.post("/login", (req, res) =>{
     const {email, password} = req.body;
@@ -27,7 +33,7 @@ app.post("/login", (req, res) =>{
     })
 })
 
-app.post("/register", (req, res) =>{
+app.post("/", (req, res) =>{
     userModel.create(req.body)
     .then(users => res.json(users))
     .catch(error => res.json(error))

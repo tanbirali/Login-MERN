@@ -10,7 +10,7 @@ const Login = () => {
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-        axios.post('http://localhost:8080/login', {email, password})
+        axios.post('https://login-mern-api.vercel.app/login', {email, password})
         .then(result => {
             console.log(result)
             if(result.data === 'SUCCESS'){
@@ -54,7 +54,7 @@ const Login = () => {
           </button>
       </form>
       <p>Don't have an account</p>
-      <Link to='/register' className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none'>
+      <Link to='/' className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none'>
               Register
           </Link>
     </div>
