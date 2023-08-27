@@ -4,14 +4,15 @@ const userModel = require('./models/userModel')
 
 const mongoose = require('mongoose');
 const app = express();
-app.use(express.json());
+
 app.use(cors(
     {
-    origin: ["https://login-mern-fv3e.vercel.app/"],
+    origin: ["https://login-mern-fv3e.vercel.app"],
     methods: ["POST","GET"],
     credentials : true
     }
 ));
+app.use(express.json());
 
 const connect = async() =>{
     try {
@@ -48,9 +49,17 @@ app.get("/", (req, res) => {
 })
 
 app.post("/register", (req, res) =>{
-    userModel.create(req.body)
-    .then(users => res.json(users))
-    .catch(error => res.json(error))
+    const {name, email, password} = req.body;
+    userModel.findOne({email: email})
+    .then(users => {
+        if(users) {
+            res.json("Already have an account")
+        } else {
+            UserModel.create({name: name, email: email, password: password})
+            .then(result => res.json(result))
+            .catch(err => res.json(err))
+        }
+    }).catch(err => res.json(err))
 
 })
 
