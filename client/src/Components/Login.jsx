@@ -11,7 +11,7 @@ const Login = () => {
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-        axios.post('http://localhost:8080/login', {email, password})
+        axios.post('https://vercel.com/tanbirali/login-mern-api/ENcby5eYpqKuYWDHmkysic4hPZxx/login', {email, password})
         .then(result => {
             console.log(result)
             if(result.data === 'SUCCESS'){
