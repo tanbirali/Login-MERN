@@ -7,11 +7,11 @@ const app = express();
 
 app.use(cors(
     {
-    origin: ["https://login-mern-fv3e.vercel.app"],
+    origin: ["https://vercel.com/tanbirali/login-mern-fv3e"],
     methods: ["POST","GET"],
     credentials : true
     }
-));
+    ));
 app.use(express.json());
 
 const connect = async() =>{
@@ -55,7 +55,7 @@ app.post("/register", (req, res) =>{
         if(users) {
             res.json("Already have an account")
         } else {
-            UserModel.create({name: name, email: email, password: password})
+            userModel.create({name: name, email: email, password: password})
             .then(result => res.json(result))
             .catch(err => res.json(err))
         }
